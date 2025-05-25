@@ -1,7 +1,34 @@
+import Head from 'next/head';
+import React from 'react';
+import Projects from '@/components/Projects';
+import About from '@/components/About';
+import Skills from '@/components/Skills';
+import ConnectWithMe from '@/components/ConnectWithMe';
+import Navbar from '@/components/Navbar';
+import HomePage from '@/components/Home';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-200">
+      <Head>
+        <title>Harsh Singh | Portfolio</title>
+        <meta
+          name="description"
+          content="Personal portfolio website showcasing projects and skills"
+        />
+      </Head>
+
+      <Navbar/>
+      <main className='relative'>
+        <HomePage/>
+        <About />
+        <Projects />
+        <Skills />
+        <ConnectWithMe />
+      </main>
+
+      <Footer />
     </div>
   );
 }
