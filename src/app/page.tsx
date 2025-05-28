@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import React from 'react';
 import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
@@ -10,7 +9,7 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-200">
+    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-200 relative">
       <Head>
         <title>Harsh Singh | Portfolio</title>
         <meta
@@ -20,11 +19,12 @@ export default function Home() {
       </Head>
 
       <Navbar/>
-      <main className='relative'>
+
+      <main className='portfolio-body relative'>
         <HomePage/>
         <About />
-        <Projects />
         <Skills />
+        <Projects />
         <ConnectWithMe />
       </main>
 

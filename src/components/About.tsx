@@ -100,9 +100,7 @@ function About() {
             className="text-3xl md:text-4xl font-bold text-white"
           >
             {config.title}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
-              {config.subtitle}
-            </span>
+           
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
         </motion.div>

@@ -27,8 +27,8 @@ function HomePage() {
 
   return (
     <section
-      id="hero" 
-      className="w-full min-h-[90vh] flex flex-col justify-center relative"
+      id="home" 
+      className="w-full min-h-[100vh] flex flex-col justify-center relative"
       
     >
       {/* Background elements */}
