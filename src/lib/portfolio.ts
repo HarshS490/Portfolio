@@ -1,5 +1,128 @@
 export const portFolioConfig = {
-  navBar:{
-    navLinks:["Home","About","Skills","Projects","Contact"],
-  }
-}
+  navBar: {
+    navLinks: ["Home", "About", "Projects", "Skills", "Contact"],
+  },
+  projects: {
+    title: "Projects",
+    projects: [
+      {
+        images: [""],
+        projectTitle: "SlideScribe",
+        date: "",
+        description: "",
+        repo: "",
+        deployment: "",
+        techStack: ["python", "reactjs", "nextjs", "tailwindcss", "nodejs"],
+      },
+      {
+        images: [""],
+        projectTitle: "SlideScribe",
+        date: "",
+        description: "",
+        repo: "",
+        deployment: "",
+        techStack: ["python", "reactjs", "nextjs", "tailwindcss", "nodejs"],
+      },
+      {
+        images: [""],
+        projectTitle: "SlideScribe",
+        date: "",
+        description: "",
+        repo: "",
+        deployment: "",
+        techStack: ["python", "reactjs", "nextjs", "tailwindcss", "nodejs"],
+      },
+    ],
+  },
+  skills: {
+    title: "Technical Skills",
+    descritpion:
+      "I've gained proficiency in various technologies throughout my career. Here are the key tools and frameworks I use to build exceptional products.",
+    techstack: [
+      {
+        domain: "Frontend",
+        skills: ["reactjs", "nextjs", "html5", "css3", "tailwindcss"],
+      },
+      {
+        domain: "Backend",
+        skills: [
+          "prisma",
+          "nodejs",
+          "expressjs",
+          "mongodb",
+          "postgresql",
+          "redis",
+          "socketio",
+          "docker",
+        ],
+      },
+      {
+        domain: "Tools",
+        skills: ["vscode", "git", "github", "postman"],
+      },
+      {
+        domain:"Programming Languages",
+        skills:["c/c++","python","javascript","typescript"]
+      }
+    ],
+  },
+
+  codingProfiles:[
+    {
+      platform:"LeetCode",
+      username:"Harsh103",
+      profileUrl:"https://leetcode.com/u/Harsh103",
+      rating:1868,
+      maxRating:1868,
+      rank:0,
+      globalRank:0,
+      problemSolved:0,
+      contests:0,
+      title:"Knight",
+      top:5,      
+    },
+    {
+      platform:"Codeforces",
+      username:"Harsh103",
+      profileUrl:"https://leetcode.com/u/Harsh103",
+      rating:1262,
+      maxRating:1262,
+      rank:0,
+      globalRank:0,
+      problemSolved:0,
+      contests:0,
+      title:"Pupil",
+    },
+    {
+      platform:"CodeChef",
+      username:"Harsh103",
+      profileUrl:"https://leetcode.com/u/Harsh103",
+      rating:1688,
+      maxRating:1688,
+      rank:0,
+      globalRank:0,
+      problemSolved:0,
+      title:"3*",
+      contests:0,
+      stars:3
+    }
+  ],
+
+  socials:[
+    {
+      platform:"linkedin",
+      profileLink:"www.linkedin.com/",
+    },
+    {
+      platform:"github",
+      profileLink:"www.github.com/",
+    },
+    {
+      platform:"email",
+
+    }
+  ]
+};
+
+
+
