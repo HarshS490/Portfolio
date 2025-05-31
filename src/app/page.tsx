@@ -1,11 +1,10 @@
-import Head from 'next/head';
-import Projects from '@/components/Projects';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import ConnectWithMe from '@/components/ConnectWithMe';
-import Navbar from '@/components/Navbar';
-import HomePage from '@/components/Home';
-import Footer from '@/components/Footer';
+import Head from "next/head";
+import Projects from "@/components/Projects";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import ConnectWithMe from "@/components/ConnectWithMe";
+import Navbar from "@/components/Navbar";
+import HomePage from "@/components/Home";
 
 export default function Home() {
   return (
@@ -18,17 +17,15 @@ export default function Home() {
         />
       </Head>
 
-      <Navbar/>
+      <Navbar />
 
-      <main className='portfolio-body relative'>
-        <HomePage/>
+      <main className="portfolio-body relative">
+        <HomePage />
         <About />
-        <Skills />
         <Projects />
+        <Skills />
         <ConnectWithMe />
       </main>
-
-      <Footer />
     </div>
   );
 }
