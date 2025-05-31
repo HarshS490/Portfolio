@@ -2,8 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, CloudDownload } from "lucide-react";
-import {GradientButton, SecondaryButton} from "./ui/Buttons";
-
+import { Button } from "./ui/Buttons";
 
 function HomePage() {
   const containerVariants = {
@@ -27,9 +26,8 @@ function HomePage() {
 
   return (
     <section
-      id="home" 
+      id="home"
       className="w-full min-h-[100vh] flex flex-col justify-center relative"
-      
     >
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -105,12 +103,21 @@ function HomePage() {
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
-            >              
-              <GradientButton icon={<CloudDownload/>} label={"Download Resume"} />
-              <SecondaryButton icon={<ArrowRight />} label={"Connect with Me"} />
+            >
+              <Button
+                icon={<CloudDownload />}
+                label={"Download Resume"}
+                gradient={true}
+                className="px-4 py-3"
+              />
+              <Button
+                icon={<ArrowRight size={20} />}
+                label={"Connect with Me"}
+                animateOnHover="true"
+                iconAnimationStyle="translate-r"
+              />
             </motion.div>
           </motion.div>
-          
         </div>
       </div>
 

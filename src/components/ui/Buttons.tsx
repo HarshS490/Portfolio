@@ -1,57 +1,126 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 type Props = {
   label: string;
   icon?: React.ReactNode;
   onClick?: () => void;
   className?: string;
+  iconPosition?: "left" | "right";
+  iconAnimationStyle?:
+    | "none"
+    | "translate-r"
+    | "translate-l"
+    | "scale-up"
+    | "translate-tr"
+    | "translate-tl"
+    | "translate-bl"
+    | "translate-br"
+    | "tilt";
+  animateOnHover?: "false" | "true";
+  gradient?: true | false;
+  type?:"button" | "submit" | "reset";
+  variant?: "gradient" | "secondary" |"link";
 };
 
-function GradientButton({ label, icon, onClick, className }: Props) {
-  const variantClasses =
-    "bg-gradient-to-r from-emerald-600 to-blue-600 shadow-emerald-600/20 hover:shadow-emerald-600/40";
+// Animation config
+const getIconAnimation = (style: Props["iconAnimationStyle"]) => {
+  switch (style) {
+    case "translate-r":
+      return {
+        initial: { x: 0 },
+        hover: { x: 2 },
+      };
+    case "translate-l":
+      return {
+        initial: { x: 0 },
+        hover: { x: -2 },
+      };
+    case "scale-up":
+      return {
+        initial: { scale: 1 },
+        hover: { scale: 1.2 },
+      };
+    case "tilt":
+      return {
+        initial: { rotate: 0 },
+        hover: { rotate: 10 },
+      };
+    case "translate-br":
+      return {
+        initial: { x: 0, y: 0 },
+        hover: { x: 2, y: 2 },
+      };
+    case "translate-bl":
+      return {
+        initial: { x: 0, y: 0 },
+        hover: { x: -2, y: 2 },
+      };
+    case "translate-tl":
+      return {
+        initial: { x: 0, y: 0 },
+        hover: { x: -2, y: -2 },
+      };
+    case "translate-tr":
+      return {
+        initial: { x: 0, y: 0 },
+        hover: { x: 2, y: -2 },
+      };
+    default:
+      return {
+        initial: {},
+        hover: {},
+      };
+  }
+};
+
+function Button({
+  label,
+  icon,
+  onClick,
+  className = "",
+  iconPosition = "right",
+  iconAnimationStyle = "none",
+  animateOnHover = "false",
+  gradient = false,
+}: Props) {
+  const variantClasses = clsx({
+    "border border-gray-600 hover:border-emerald-600 bg-gray-800 shadow-gray-600/20 hover:shadow-gray-600/40":
+      !gradient,
+    "bg-gradient-to-r from-emerald-600 to-blue-600 shadow-emerald-600/20 hover:shadow-emerald-600/40":
+      gradient,
+  });
+
+  const iconVariant =
+    animateOnHover === "true"
+      ? getIconAnimation(iconAnimationStyle)
+      : { initial: {}, hover: {} };
 
   return (
-    <button
+    <motion.button
       type="button"
-      className={`py-3 px-4 ${variantClasses} flex items-center justify-center  rounded-full cursor-pointer hover:shadow-lg hover:shadow-teal-300/20 ${className}`}
+      whileHover="hover"
+      initial="initial"
       onClick={onClick}
+      className={clsx(
+        `p-2 ${variantClasses} flex items-stretch justify-center gap-2  rounded-md cursor-pointer ${className} `,
+        { "flex-row-reverse": iconPosition === "left" }
+      )}
     >
-      <span className="flex items-center gap-2 items-center">
-        {label}
-        {icon && <span className="mr-2">{icon}</span>}
-      </span>
-    </button>
+      <span className="overflow-hidden block text-nowrap">{label}</span>
+      {icon && (
+        <motion.span
+          className={clsx("self-center relative")}
+          variants={iconVariant}
+          transition={{ delay: 0.1, duration: 0.25 }}
+        >
+          {icon}
+        </motion.span>
+      )}
+    </motion.button>
   );
 }
 
-function SecondaryButton({ label, icon, onClick, className = "" }: Props) {
-  const baseClasses =
-    "py-3 px-4 bg-gray-800 shadow-gray-600/20 hover:shadow-gray-600/40";
-  const variantClasses = "border border-gray-600 hover:border-emerald-600";
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`${baseClasses} ${variantClasses} flex items-center justify-center rounded-full cursor-pointer ${className}`}
-    >
-      <span className="flex items-center gap-2">
-        {label}
-        {icon && (
-          <motion.span
-            className="inline-block"
-            whileHover={{ x: 4 }}
-            transition={{ delay: 0.15, duration: 0.25 }}
-          >
-            {icon}
-          </motion.span>
-        )}
-      </span>
-    </button>
-  );
-}
-
-export { GradientButton, SecondaryButton };
+export { Button };
