@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, CloudDownload } from "lucide-react";
+import { ArrowRight, ChevronDown, Globe } from "lucide-react";
 import { Button } from "./ui/Buttons";
+import Terminal from "./Terminal";
+import { portFolioConfig } from "@/lib/portfolio";
 
 function HomePage() {
   const containerVariants = {
@@ -14,15 +16,7 @@ function HomePage() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-  const config = {
-    name: "Harsh Singh",
-    description:
-      "I am a passionate software engineer with a focus on building innovative solutions.",
-    scrollIndicatorText: "Scroll to explore",
-    greeting: "Hi, I'm ",
-    resumeLink: "https://example.com/resume.pdf",
-    connectLink: "#connect",
-  };
+  const config = portFolioConfig.hero;
 
   return (
     <section
@@ -71,7 +65,7 @@ function HomePage() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex items-center h-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex items-center h-full mt-36 lg:mt-0.5">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center w-full">
           {/* Main content area */}
           <motion.div
@@ -82,11 +76,13 @@ function HomePage() {
           >
             {/* Main heading */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight"
+              className="  font-bold tracking-tight mb-4 leading-tight"
               variants={itemVariants}
             >
-              <span className="text-white">{config.greeting} </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
+              <span className="text-2xl text-white font-normal block">
+                {config.greeting}{" "}
+              </span>
+              <span className="text-5xl md:text-6xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500 my-2">
                 {config.name}
               </span>
             </motion.h1>
@@ -96,7 +92,20 @@ function HomePage() {
               variants={itemVariants}
               className="text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 mb-8"
             >
-              {config.description}
+              A full-stack developer specializing in building end-to-end web
+              applications that are{" "}
+              <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                fast
+              </span>
+              ,{" "}
+              <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                scalable
+              </span>
+              , and{" "}
+              <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                user-friendly
+              </span>{" "}
+              — with a strong emphasis on clean architecture and performance.
             </motion.p>
 
             {/* Action buttons */}
@@ -105,19 +114,33 @@ function HomePage() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
             >
               <Button
-                icon={<CloudDownload />}
-                label={"Download Resume"}
+                icon={<Globe size={20} />}
+                label={"View Projects"}
                 gradient={true}
-                className="px-4 py-3"
+                className="px-4 py-3 hover:shadow-lg hover:shadow-emerald-600"
+                onClick={() => {
+                  document
+                    .querySelector("#projects")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
               />
               <Button
                 icon={<ArrowRight size={20} />}
                 label={"Connect with Me"}
                 animateOnHover="true"
                 iconAnimationStyle="translate-r"
+                onClick={() => {
+                  document
+                    .querySelector("#contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
               />
             </motion.div>
           </motion.div>
+
+          <div className="lg:col-span-5 mb-3">
+            <Terminal />
+          </div>
         </div>
       </div>
 

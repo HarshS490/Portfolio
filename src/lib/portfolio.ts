@@ -1,4 +1,13 @@
 export const portFolioConfig = {
+  hero:{
+    name: "Harsh Singh",
+    description:
+      "I am a passionate software engineer with a focus on building innovative solutions.",
+    scrollIndicatorText: "Scroll to explore",
+    greeting: "Hi, I'm ",
+    resumeLink: "https://example.com/resume.pdf",
+    connectLink: "#connect",
+  },
   navBar: {
     navLinks: ["Home", "About", "Skills", "Projects", "Contact"],
   },
