@@ -51,7 +51,7 @@ function Projects() {
                 variants={{
                   initial: {
                     opacity: 0,
-                    y: 20,
+                    y: 10,
                     x: 0,
                   },
                   inView: {
@@ -60,7 +60,7 @@ function Projects() {
                   },
                 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.2, delay: 0.2 }}
+                transition={{ duration: 0.5 }}
               >
                 <CardWrapper>
                   {/* subtle grid */}

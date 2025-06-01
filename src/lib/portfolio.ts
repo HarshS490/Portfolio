@@ -1,6 +1,6 @@
 export const portFolioConfig = {
   navBar: {
-    navLinks: ["Home", "About", "Projects", "Skills", "Contact"],
+    navLinks: ["Home", "About", "Skills", "Projects", "Contact"],
   },
   projects: {
     title: "Projects",
@@ -111,15 +111,15 @@ export const portFolioConfig = {
   socials:[
     {
       platform:"linkedin",
-      profileLink:"www.linkedin.com/",
+      link:"https://www.linkedin.com/in/harshsingh1104/",
     },
     {
       platform:"github",
-      profileLink:"www.github.com/",
+      link:"https://github.com/HarshS490",
     },
     {
       platform:"email",
-
+      link:"mailto:harshs.3004@gmail.com"
     }
   ]
 };

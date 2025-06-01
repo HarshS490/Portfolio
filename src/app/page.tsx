@@ -22,8 +22,8 @@ export default function Home() {
       <main className="portfolio-body relative">
         <HomePage />
         <About />
-        <Projects />
         <Skills />
+        <Projects />
         <ConnectWithMe />
       </main>
     </div>

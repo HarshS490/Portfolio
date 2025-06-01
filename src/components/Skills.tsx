@@ -69,15 +69,21 @@ function Skills() {
           <TabsList className="mb-8 bg-gray-800/40 backdrop-blur-sm border-gray-700/50 border shadow-lg box-content p-2">
             <TabsTrigger
               value="dev"
-              className="text-gray-200 text-lg data-[state=active]:from-emerald-700 data-[state=active]:to-blue-600 data-[state=active]:bg-gradient-to-r transition-colors duration-500"
+              className="cursor-pointer text-gray-200 text-lg data-[state=active]:from-emerald-700 data-[state=active]:to-blue-600 data-[state=active]:bg-gradient-to-r transition-all duration-500"
             >
-              Development
+              <span className="hidden sm:block">Development</span>
+              <span className="block sm:hidden">
+                Dev
+              </span>
             </TabsTrigger>
             <TabsTrigger
               value="cp"
-              className=" text-gray-300 text-lg data-[state=active]:from-emerald-700 data-[state=active]:to-blue-600 data-[state=active]:bg-gradient-to-r transition-colors duration-500"
+              className="cursor-pointer text-gray-300 text-lg data-[state=active]:from-emerald-700 data-[state=active]:to-blue-600 data-[state=active]:bg-gradient-to-r transition-all duration-500"
             >
-              Competitive Programming
+              <span className="hidden sm:block">Competitive Programming</span>
+              <span className="block sm:hidden">
+                CP
+              </span>
             </TabsTrigger>
           </TabsList>
           {/*Development Skill tag categories */}
