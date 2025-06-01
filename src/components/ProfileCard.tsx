@@ -6,6 +6,7 @@ import {
 import { ArrowUp, ExternalLink, TrophyIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface ProfileCardProps {
   platformInfo: PlatformInfo;
@@ -37,8 +38,14 @@ export function ProfileCard({ platformInfo }: ProfileCardProps) {
 
   const { rankIcon, rankColor, rankBgColor } = getTitleIcon(title);
 
+
   return (
-    <div className=" relative bg-gray-800 border border-gray-700 rounded-xl p-6 hover:border-gray-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 group overflow-hidden">
+    <motion.div
+      initial={{x:0,y:0}}
+      whileHover={{x:0,y:-5}}
+      transition={{duration:"0.2"}}
+      className="w-full relative bg-gray-800 border border-gray-700 rounded-xl p-6 hover:border-gray-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 group overflow-hidden"
+    >
       <div
         className={`absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300 ${variant.bgGradient}`}
       />
@@ -59,7 +66,7 @@ export function ProfileCard({ platformInfo }: ProfileCardProps) {
             <h3 className="text-xl font-bold text-white">
               <Link href={profileUrl} className="flex gap-2 items-center">
                 <span>{platform}</span>
-                <ExternalLink size={18}/>
+                <ExternalLink size={18} />
               </Link>
             </h3>
             <p className="text-sm text-gray-400">@{username}</p>
@@ -151,6 +158,6 @@ export function ProfileCard({ platformInfo }: ProfileCardProps) {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

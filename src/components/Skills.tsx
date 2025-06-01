@@ -26,6 +26,19 @@ const getDomainIcon = (domain: string) => {
 function Skills() {
   const config = portFolioConfig.skills;
 
+  const cardVariant = {
+    initial: {
+      x: 0,
+      y: 10,
+      opacity: 0,
+    },
+    whileInView: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
     <section
       id="skills"
@@ -52,7 +65,7 @@ function Skills() {
           <p className="my-6 max-w-2xl text-gray-300">{config.descritpion}</p>
         </motion.div>
 
-        <Tabs className="flex flex-col items-center " defaultValue="dev">
+        <Tabs className="flex flex-col items-center w-full" defaultValue="dev">
           <TabsList className="mb-8 bg-gray-800/40 backdrop-blur-sm border-gray-700/50 border shadow-lg box-content p-2">
             <TabsTrigger
               value="dev"
@@ -74,10 +87,17 @@ function Skills() {
               {config.techstack.map((tech, index) => {
                 const styledDomain =
                   tech.domain.slice(0, 1).toUpperCase() + tech.domain.slice(1);
+
                 const icon = getDomainIcon(styledDomain);
-                console.log(tech);
+
                 return (
-                  <motion.div key={`${tech.domain}-${index}`}>
+                  <motion.div
+                    key={`${tech.domain}-${index}`}
+                    initial="initial"
+                    whileInView={"whileInView"}
+                    variants={cardVariant}
+                    transition={{ duration: "0.5" }}
+                  >
                     <CardWrapper>
                       <div className="p-4">
                         <h3 className="text-xl font-semibold flex items-center gap-2">
@@ -97,13 +117,18 @@ function Skills() {
           </TabsContent>
 
           {/* Competitive Programming */}
-          <TabsContent value="cp">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-center auto-cols-auto">
+          <TabsContent value="cp" className="w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-center auto-cols-auto w-full my-2">
               {portFolioConfig.codingProfiles.map((profile, index) => (
-                <ProfileCard
-                  platformInfo={profile}
+                <motion.div
+                  variants={cardVariant}
+                  initial="initial"
+                  whileInView={"whileInView"}
+                  transition={{ duration: "0.5" }}
                   key={`${profile.platform}-${index}`}
-                />
+                >
+                  <ProfileCard platformInfo={profile} />
+                </motion.div>
               ))}
             </div>
           </TabsContent>

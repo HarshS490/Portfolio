@@ -31,6 +31,7 @@ export const platformVariants: Record<
   codechef: {
     bgGradient: "bg-gradient-to-br from-yellow-500 to-orange-500",
     textColor: "bg-gray-500",
+    icon:"/codingPlatformicons/codechef-icon.png"
   },
   atcoder: {
     bgGradient: "bg-gradient-to-r from-indigo-400 to-blue-600",
@@ -52,7 +53,7 @@ export const getTitleIcon = (title: string ) => {
   switch (lowerCaseTitle) {
     case "knight":
       return {
-        rankIcon: "/codingPlatformicons/knight.png",
+        rankIcon: "/codingPlatformicons/knight-icon.png",
         rankColor: "text-green-300",
         rankBgColor: "bg-green-300",
       };
