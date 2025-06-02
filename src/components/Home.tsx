@@ -3,8 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Globe } from "lucide-react";
 import { Button } from "./ui/Buttons";
-import Terminal from "./Terminal";
 import { portFolioConfig } from "@/lib/portfolio";
+import CodeSnippet from "./Terminal";
 
 function HomePage() {
   const containerVariants = {
@@ -65,11 +65,11 @@ function HomePage() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex items-center h-full mt-36 lg:mt-0.5">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex items-center h-full mt-36 lg:mt-0.5 mb-3">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center w-full ">
           {/* Main content area */}
           <motion.div
-            className="lg:col-span-7 text-center lg:text-left"
+            className="lg:col-span-7 text-center lg:text-left "
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -138,15 +138,20 @@ function HomePage() {
             </motion.div>
           </motion.div>
 
-          <div className="lg:col-span-5 mb-3">
-            <Terminal />
-          </div>
+          <motion.div
+            className="lg:col-span-5 mb-3 justify-items-center "
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <CodeSnippet />
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20"
+        className="absolute bottom-4 md:bottom-2 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}

@@ -151,8 +151,33 @@ export const techColorMap: Record<
     borderColor: "border-orange-400/30",
     shadowColor: "hover:shadow-orange-500/30",
   },
-};
+  gemini: {
+    color: "text-blue-100",
+    bgColor: "bg-blue-500/30",
+    borderColor: "border-blue-400/30",
+    shadowColor: "hover:shadow-blue-500/30",
+  },
 
+  cloudinary: {
+    color: "text-indigo-100",
+    bgColor: "bg-indigo-500/30",
+    borderColor: "border-indigo-400/30",
+    shadowColor: "hover:shadow-indigo-500/30",
+  },
+
+  syncfusion: {
+    color: "text-purple-100",
+    bgColor: "bg-purple-500/30",
+    borderColor: "border-purple-400/30",
+    shadowColor: "hover:shadow-purple-500/30",
+  },
+  kafka: {
+    color: "text-red-100",
+    bgColor: "bg-red-500/30",
+    borderColor: "border-red-400/30",
+    shadowColor: "hover:shadow-red-500/30",
+  },
+};
 
 // techIconMap.ts
 export const techIconMap: Record<string, string> = {
@@ -208,8 +233,11 @@ export const techIconMap: Record<string, string> = {
     "https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/vscode/vscode-original.svg",
 
   pusherjs: "/skillicons/logo-pusher-icon.svg",
+  cloudinary: "/skillicons/logo-cloudinary.svg",
+  gemini: "/skillicons/logo-gemini-ai.svg",
+  syncfusion: "/skillicons/logo-syncfusion.svg",
+  kafka: "/skillicons/logo-kafka.svg",
 };
-
 
 export const techDisplayNameMap: Record<string, string> = {
   // Programming Languages
@@ -227,8 +255,10 @@ export const techDisplayNameMap: Record<string, string> = {
   mongodb: "MongoDB",
   expressjs: "Express Js",
   nodejs: "Node Js",
-  tailwindcss: "TailWind CSS",
-
+  tailwindcss: "Tailwind CSS",
+  cloudinary: "Cloudinary",
+  syncfusion: "SyncFusion",
+  kafka: "Kafka",
   // Database & ORM
   prisma: "Prisma",
   redis: "Redis",
@@ -246,4 +276,7 @@ export const techDisplayNameMap: Record<string, string> = {
   github: "GitHub",
   vscode: "VS Code",
   postman: "Postman",
+
+  // AI
+  gemini: "Gemini",
 };

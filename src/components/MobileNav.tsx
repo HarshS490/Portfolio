@@ -31,7 +31,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     },
   };
 
-  console.log(activeSection);
   return (
     <div
       className={clsx(

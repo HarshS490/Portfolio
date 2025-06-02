@@ -1,21 +1,30 @@
-"use client";
+"use client"
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Code, Rocket, Lightbulb, BarChart3 } from "lucide-react";
+import type React from "react"
+import { motion } from "framer-motion"
+import { Code, Rocket, Lightbulb, BarChart3, UserIcon, GraduationCap } from "lucide-react"
 
 function About() {
   const config = {
     title: "About Me",
-    subtitle: "My Journey",
+    subtitle: "Who I am",
     bio: [
-      "I am a passionate software engineer with a love for coding and technology.",
-      "I enjoy solving complex problems and building innovative solutions.",
-      "In my free time, I like to explore new technologies and work on personal projects.",
+      "I am Harsh Singh , a student at Delhi Technological University (DTU) pursuing my B.Tech in Information Technology. I'm a passionate software engineer with a strong foundation in full-stack web development and a deep curiosity for solving real-world problems through technology.  I have experience of working in JavaScript, TypeScript, React, Next.js, Node.js, MongoDB, and more.",
+      "Whether it's building scalable web apps, architecting clean APIs, I thrive on translating ideas into impactful solutions. ",
+      "Beyond code, I enjoy sharpening my problem-solving skills through competitive programming, exploring the latest in AI and developer tools, and crafting products that not only function well but also feel great to use.",
     ],
     details: [
-      { label: "Location", value: "San Francisco, CA" },
-      { label: "Experience", value: "5+ years in software development" },
+      { label: "Location", value: "Delhi, India" },
+      { label: "Specialization", value: "Full Stack Developer" },
+    ],
+    education: [
+      {
+        degree: "B. Tech.",
+        institution: "Delhi Technological University",
+        duration: "2022 - Present",
+        cgpa: "9.0 / 10.0",
+        major: "Information Technology",
+      },
     ],
     qualities: [
       {
@@ -25,8 +34,8 @@ function About() {
         gradient: "from-emerald-400 to-blue-500",
       },
       {
-        title: "Creative Thinker",
-        description: "I approach problems with a unique perspective.",
+        title: "Critical Thinker",
+        description: "I analyze problems from multiple angles, question assumptions, and make well-reasoned decisions.",
         icon: "Lightbulb",
         gradient: "from-blue-400 to-purple-500",
       },
@@ -37,24 +46,24 @@ function About() {
         gradient: "from-purple-400 to-pink-500",
       },
       {
-        title: "Data Driven",
-        description: "I make decisions based on data and analytics.",
+        title: "User-Focused",
+        description: "I prioritize creating intuitive, accessible experiences that meet real user needs.",
         icon: "BarChart3",
         gradient: "from-pink-400 to-red-500",
       },
     ],
-  };
+  }
 
   const getIconComponent = (iconName: string) => {
     const icons: { [key: string]: React.ReactNode } = {
-      Rocket: <Rocket size={24} />,
-      Code: <Code size={24} />,
-      Lightbulb: <Lightbulb size={24} />,
-      BarChart3: <BarChart3 size={24} />,
-    };
+      Rocket: <Rocket size={20} />,
+      Code: <Code size={20} />,
+      Lightbulb: <Lightbulb size={20} />,
+      BarChart3: <BarChart3 size={20} />,
+    }
 
-    return icons[iconName] || <Rocket size={24} />;
-  };
+    return icons[iconName] || <Rocket size={20} />
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,7 +73,7 @@ function About() {
         staggerChildren: 0.15,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -73,14 +82,10 @@ function About() {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  };
+  }
 
   return (
-    <section
-      id="about"
-      className="py-24 relative overflow-x-hidden"
-      aria-labelledby="about-title"
-    >
+    <section id="about" className="py-24 relative overflow-x-hidden" aria-labelledby="about-title">
       {/* Decorative elements */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
       <div className="absolute -left-20 top-40 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
@@ -95,33 +100,29 @@ function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2
-            id="about-title"
-            className="text-3xl md:text-4xl font-bold text-white"
-          >
+          <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-white">
             {config.title}{" "}
-           
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
         </motion.div>
 
-        {/* Main content area - 50/50 layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        {/* Main content area - equal height layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* About me text content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="h-full"
+            className="lg:col-span-7 flex"
           >
-            <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-emerald-500/30 transition-all duration-300 shadow-xl h-full relative overflow-hidden">
-              <h3 className="text-2xl font-semibold text-white mb-6 relative">
-                My Journey
+            <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-emerald-500/30 transition-all duration-300 shadow-xl relative overflow-hidden w-full flex flex-col">
+              <h3 className="text-2xl font-semibold text-white mb-6 relative flex items-center gap-2">
+                <UserIcon className="text-gray-300" size={22} /> <span>{config.subtitle}</span>
               </h3>
 
               {/* Bio paragraphs */}
-              <div className="space-y-4 relative">
+              <div className="space-y-4 relative flex-1">
                 {config.bio.map((paragraph, index) => (
                   <p key={index} className="text-gray-300 leading-relaxed">
                     {paragraph}
@@ -144,49 +145,77 @@ function About() {
             </div>
           </motion.div>
 
-          {/* My qualities grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="h-full"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
-              {config.qualities.map((quality, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="bg-gray-800/40 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-xl overflow-hidden relative h-full group hover:border-emerald-500/30 transition-all duration-300"
-                >
-                  <div className="p-6 relative">
-                    {/* Gradient circle behind icon */}
-                    <div
-                      className={`absolute top-6 left-6 w-12 h-12 rounded-full bg-gradient-to-r ${quality.gradient} opacity-10 blur-lg`}
-                    />
-
-                    {/* Icon with gradient background */}
-                    <div
-                      className={`w-12 h-12 rounded-full bg-gradient-to-r ${quality.gradient} flex items-center justify-center text-white mb-4`}
-                    >
-                      {getIconComponent(quality.icon)}
+          {/* Right side content */}
+          <div className="lg:col-span-5 flex flex-col gap-8">
+            {/* Education section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex-shrink-0"
+            >
+              <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-emerald-500/30 transition-all duration-300 shadow-xl">
+                <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  <GraduationCap className="text-gray-300" size={20} />
+                  <span>Education</span>
+                </h3>
+                <div>
+                  {config.education.map((edu, index) => (
+                    <div key={index} className="text-gray-300">
+                      <p className="text-lg font-medium text-white">
+                        {edu.degree} in {edu.major}
+                      </p>
+                      <p className="text-base text-emerald-400 my-2">{edu.institution}</p>
+                      <p className="text-sm text-gray-400">
+                        {edu.duration} | CGPA: {edu.cgpa}
+                      </p>
                     </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
-                    <h4 className="text-lg font-semibold text-white mb-2">
-                      {quality.title}
-                    </h4>
-                    <p className="text-gray-300 text-sm">
-                      {quality.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+            {/* My qualities grid */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex-1"
+            >
+              <div className="grid grid-cols-2 gap-3 h-full">
+                {config.qualities.map((quality, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="bg-gray-800/40 backdrop-blur-sm rounded-2xl border border-gray-700/50 shadow-xl overflow-hidden relative group hover:border-emerald-500/30 transition-all duration-300 flex flex-col"
+                  >
+                    <div className="p-3 flex-1 flex flex-col">
+                      {/* Gradient circle behind icon */}
+                      <div
+                        className={`absolute top-3 left-3 w-8 h-8 rounded-full bg-gradient-to-r ${quality.gradient} opacity-10 blur-lg`}
+                      />
+
+                      {/* Icon with gradient background */}
+                      <div
+                        className={`w-8 h-8 rounded-full bg-gradient-to-r ${quality.gradient} flex items-center justify-center text-white mb-2 flex-shrink-0`}
+                      >
+                        {getIconComponent(quality.icon)}
+                      </div>
+
+                      <h4 className="text-base font-semibold text-white mb-2 flex-shrink-0">{quality.title}</h4>
+                      <p className="text-gray-300 text-xs leading-relaxed flex-1">{quality.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default About;
+export default About

@@ -2,7 +2,7 @@ import {
   getTitleIcon,
   PlatformInfo,
   platformVariants,
-} from "@/lib/codingProfiles";
+} from "@/lib/codingProfileConfig";
 import { ArrowUp, ExternalLink, TrophyIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

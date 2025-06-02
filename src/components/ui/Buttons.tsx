@@ -21,8 +21,9 @@ type Props = {
     | "tilt";
   animateOnHover?: "false" | "true";
   gradient?: true | false;
-  type?:"button" | "submit" | "reset";
+  type?:"button" | "link";
   variant?: "gradient" | "secondary" |"link";
+  href?:string;
 };
 
 // Animation config
@@ -85,6 +86,8 @@ function Button({
   iconAnimationStyle = "none",
   animateOnHover = "false",
   gradient = false,
+  type="button",
+  href,
 }: Props) {
   const variantClasses = clsx({
     "border border-gray-600 hover:border-emerald-600 bg-gray-800 shadow-gray-600/20 hover:shadow-gray-600/40":
@@ -98,6 +101,34 @@ function Button({
       ? getIconAnimation(iconAnimationStyle)
       : { initial: {}, hover: {} };
 
+  if(type==="link"){
+    return (
+      <motion.a
+      type="button"
+      whileHover="hover"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial="initial"
+      onClick={onClick}
+      className={clsx(
+        `p-2 ${variantClasses} flex items-stretch justify-center gap-2  rounded-md cursor-pointer ${className} `,
+        { "flex-row-reverse": iconPosition === "left" }
+      )}
+    >
+      <span className="overflow-hidden block text-nowrap">{label}</span>
+      {icon && (
+        <motion.span
+          className={clsx("self-center relative")}
+          variants={iconVariant}
+          transition={{ delay: 0.1, duration: 0.25 }}
+        >
+          {icon}
+        </motion.span>
+      )}
+    </motion.a>
+    )
+  }
   return (
     <motion.button
       type="button"

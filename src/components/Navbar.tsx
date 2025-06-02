@@ -6,6 +6,7 @@ import clsx from "clsx";
 import BezierEasing from "bezier-easing";
 import MobileMenu from "./MobileNav";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 function Navbar() {
   const easing = BezierEasing(0.77, 0, 0.175, 1);
@@ -80,10 +81,10 @@ function Navbar() {
       id="navbar"
       className="fixed top-0 w-full  border-b border-gray-700/30 z-50"
     >
-      <div className="p-5 bg-gray-800/30  backdrop-blur-md">
-        <div className=" mx-auto max-w-7xl flex justify-between px-2 sm:px-3 md:px-4 lg:px-6">
+      <div className="p-4 bg-gray-800/30  backdrop-blur-md">
+        <div className=" mx-auto max-w-7xl flex items-center justify-between px-2 sm:px-3 md:px-4 lg:px-6">
           <span id="logo" className="block text-gray-300">
-            Logo
+            <Image src={"/site-logo.svg"} width={56} height={56} alt={"logo"}/>
           </span>
           <ul className="md:flex flex-nowrap gap-2.5 hidden ">
             {config.navLinks.map((section, index) => {
