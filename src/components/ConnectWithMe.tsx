@@ -118,12 +118,12 @@ function ConnectWithMe({}) {
   };
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-24 relative w-full">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
       {/* <div className="absolute -left-20 top-40 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl" />
       <div className="absolute -right-20 bottom-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" /> */}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -145,13 +145,13 @@ function ConnectWithMe({}) {
         </motion.div>
 
         <motion.div
-          className="max-w-3xl mx-auto"
+          className="max-w-3xl mx-auto w-full"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          <div className="flex items-center gap-4">{renderSocialLinks()}</div>
+          <div className="grid gird-cols-2 sm:grid-cols-3 items-center gap-2 ">{renderSocialLinks()}</div>
         </motion.div>
 
         <style jsx global>{`
