@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   title: "Harsh Singh | Portfolio",
   description: "Hi, I'm Harsh Singh. A software developer specializing in building exceptional digital experiences.",
   keywords: ["Harsh Singh", "portfolio", "web developer","full-stack developer","competitive programmer", "nextjs", "react"],
