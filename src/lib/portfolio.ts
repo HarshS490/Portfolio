@@ -1,4 +1,7 @@
-const hero = {
+import { About, CodingProfile, Hero, Projects, Skills, Social } from "./sectionTypes";
+
+
+const hero: Hero = {
   name: "Harsh Singh",
   description:
     "I am a passionate software engineer with a focus on building innovative solutions.",
@@ -8,7 +11,7 @@ const hero = {
   connectLink: "#connect",
 };
 
-const about = {
+const about:About = {
   title: "About Me",
   subtitle: "Who I am",
   bio: [
@@ -59,7 +62,7 @@ const about = {
   ],
 };
 
-const projects = {
+const projects: Projects = {
   title: "Projects",
   projects: [
     {
@@ -112,9 +115,9 @@ const projects = {
   ],
 };
 
-const skills = {
+const skills:Skills = {
   title: "Technical Skills",
-  descritpion:
+  description:
     "I've gained proficiency in various technologies throughout my career. Here are the key tools and frameworks I use to build exceptional products.",
   techstack: [
     {
@@ -145,7 +148,7 @@ const skills = {
   ],
 };
 
-const codingProfiles = [
+const codingProfiles:CodingProfile[] = [
   {
     platform: "LeetCode",
     username: "Harsh103",
@@ -186,7 +189,7 @@ const codingProfiles = [
   },
 ];
 
-const socials = [
+const socials:Social[] = [
   {
     platform: "linkedin",
     link: "https://www.linkedin.com/in/harshsingh1104/",
