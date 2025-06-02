@@ -1,58 +1,19 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { motion } from "framer-motion"
-import { Code, Rocket, Lightbulb, BarChart3, UserIcon, GraduationCap } from "lucide-react"
+import type React from "react";
+import { motion } from "framer-motion";
+import {
+  Code,
+  Rocket,
+  Lightbulb,
+  BarChart3,
+  UserIcon,
+  GraduationCap,
+} from "lucide-react";
+import { portFolioConfig } from "@/lib/portfolio";
 
 function About() {
-  const config = {
-    title: "About Me",
-    subtitle: "Who I am",
-    bio: [
-      "I am Harsh Singh , a student at Delhi Technological University (DTU) pursuing my B.Tech in Information Technology. I'm a passionate software engineer with a strong foundation in full-stack web development and a deep curiosity for solving real-world problems through technology.  I have experience of working in JavaScript, TypeScript, React, Next.js, Node.js, MongoDB, and more.",
-      "Whether it's building scalable web apps, architecting clean APIs, I thrive on translating ideas into impactful solutions. ",
-      "Beyond code, I enjoy sharpening my problem-solving skills through competitive programming, exploring the latest in AI and developer tools, and crafting products that not only function well but also feel great to use.",
-    ],
-    details: [
-      { label: "Location", value: "Delhi, India" },
-      { label: "Specialization", value: "Full Stack Developer" },
-    ],
-    education: [
-      {
-        degree: "B. Tech.",
-        institution: "Delhi Technological University",
-        duration: "2022 - Present",
-        cgpa: "9.0 / 10.0",
-        major: "Information Technology",
-      },
-    ],
-    qualities: [
-      {
-        title: "Problem Solver",
-        description: "I thrive on challenges and enjoy finding solutions.",
-        icon: "Rocket",
-        gradient: "from-emerald-400 to-blue-500",
-      },
-      {
-        title: "Critical Thinker",
-        description: "I analyze problems from multiple angles, question assumptions, and make well-reasoned decisions.",
-        icon: "Lightbulb",
-        gradient: "from-blue-400 to-purple-500",
-      },
-      {
-        title: "Team Player",
-        description: "I believe in collaboration and teamwork.",
-        icon: "Code",
-        gradient: "from-purple-400 to-pink-500",
-      },
-      {
-        title: "User-Focused",
-        description: "I prioritize creating intuitive, accessible experiences that meet real user needs.",
-        icon: "BarChart3",
-        gradient: "from-pink-400 to-red-500",
-      },
-    ],
-  }
+  const config = portFolioConfig.about;
 
   const getIconComponent = (iconName: string) => {
     const icons: { [key: string]: React.ReactNode } = {
@@ -60,10 +21,10 @@ function About() {
       Code: <Code size={20} />,
       Lightbulb: <Lightbulb size={20} />,
       BarChart3: <BarChart3 size={20} />,
-    }
+    };
 
-    return icons[iconName] || <Rocket size={20} />
-  }
+    return icons[iconName] || <Rocket size={20} />;
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,7 +34,7 @@ function About() {
         staggerChildren: 0.15,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -82,10 +43,14 @@ function About() {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  }
+  };
 
   return (
-    <section id="about" className="py-24 relative overflow-x-hidden" aria-labelledby="about-title">
+    <section
+      id="about"
+      className="py-24 relative overflow-x-hidden"
+      aria-labelledby="about-title"
+    >
       {/* Decorative elements */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
       <div className="absolute -left-20 top-40 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
@@ -100,8 +65,14 @@ function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-white">
-            {config.title}{" "}
+          <h2
+            id="about-title"
+            className="text-3xl md:text-4xl font-bold text-white"
+          >
+            About{" "}
+            <span className="bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
+              Me
+            </span>
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
         </motion.div>
@@ -118,7 +89,8 @@ function About() {
           >
             <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-emerald-500/30 transition-all duration-300 shadow-xl relative overflow-hidden w-full flex flex-col">
               <h3 className="text-2xl font-semibold text-white mb-6 relative flex items-center gap-2">
-                <UserIcon className="text-gray-300" size={22} /> <span>{config.subtitle}</span>
+                <UserIcon className="text-gray-300" size={22} />{" "}
+                <span>{config.subtitle}</span>
               </h3>
 
               {/* Bio paragraphs */}
@@ -166,7 +138,9 @@ function About() {
                       <p className="text-lg font-medium text-white">
                         {edu.degree} in {edu.major}
                       </p>
-                      <p className="text-base text-emerald-400 my-2">{edu.institution}</p>
+                      <p className="text-base text-emerald-400 my-2">
+                        {edu.institution}
+                      </p>
                       <p className="text-sm text-gray-400">
                         {edu.duration} | CGPA: {edu.cgpa}
                       </p>
@@ -204,8 +178,12 @@ function About() {
                         {getIconComponent(quality.icon)}
                       </div>
 
-                      <h4 className="text-base font-semibold text-white mb-2 flex-shrink-0">{quality.title}</h4>
-                      <p className="text-gray-300 text-xs leading-relaxed flex-1">{quality.description}</p>
+                      <h4 className="text-base font-semibold text-white mb-2 flex-shrink-0">
+                        {quality.title}
+                      </h4>
+                      <p className="text-gray-300 text-xs leading-relaxed flex-1">
+                        {quality.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -215,7 +193,7 @@ function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default About
+export default About;

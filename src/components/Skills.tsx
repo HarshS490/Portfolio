@@ -59,10 +59,10 @@ function Skills() {
             id="projects-title"
             className="text-3xl md:text-4xl font-bold text-white"
           >
-            {config.title}
+            My <span className="bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent ">Skills</span>
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
-          <p className="my-6 max-w-2xl text-gray-300">{config.descritpion}</p>
+          <p className="my-6 max-w-2xl text-gray-300">{config.description}</p>
         </motion.div>
 
         <Tabs className="flex flex-col items-center w-full" defaultValue="dev">
