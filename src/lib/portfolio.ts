@@ -165,7 +165,7 @@ const codingProfiles:CodingProfile[] = [
   {
     platform: "Codeforces",
     username: "Harsh103",
-    profileUrl: "https://leetcode.com/u/Harsh103",
+    profileUrl: "https://codeforces.com/profile/Harsh103",
     rating: 1216,
     maxRating: 1262,
     rank: 0,
@@ -176,7 +176,7 @@ const codingProfiles:CodingProfile[] = [
   },
   {
     platform: "CodeChef",
-    username: "Harsh103",
+    username: "harshs103",
     profileUrl: "https://leetcode.com/u/Harsh103",
     rating: 1687,
     maxRating: 1687,
